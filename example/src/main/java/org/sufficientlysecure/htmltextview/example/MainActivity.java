@@ -19,10 +19,14 @@ package org.sufficientlysecure.htmltextview.example;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.style.URLSpan;
 import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
+
+import net.nightwhistler.htmlspanner.handlers.listeners.OnClickUrlListener;
 
 import org.sufficientlysecure.htmltextview.ClickableTableSpan;
 import org.sufficientlysecure.htmltextview.DrawTableLinkSpan;
@@ -67,6 +71,13 @@ public class MainActivity extends Activity {
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
         textView.setListIndentPx(metrics.density * 10);
 
+        textView.setOnClickUrlListener(new OnClickUrlListener() {
+            @Override
+            public void onClickUrl(URLSpan span, String url) {
+                Toast.makeText(MainActivity.this, url, Toast.LENGTH_SHORT).show();
+            }
+
+        });
         textView.setHtml(R.raw.example, new HtmlResImageGetter(textView));
     }
 

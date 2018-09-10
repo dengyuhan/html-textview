@@ -23,6 +23,9 @@ import android.support.annotation.RawRes;
 import android.text.Html;
 import android.util.AttributeSet;
 
+import net.nightwhistler.htmlspanner.HtmlSpanner;
+import net.nightwhistler.htmlspanner.handlers.listeners.OnClickUrlListener;
+
 import java.io.InputStream;
 import java.util.Scanner;
 
@@ -30,6 +33,10 @@ public class HtmlTextView extends JellyBeanSpanFixTextView {
 
     public static final String TAG = "HtmlTextView";
     public static final boolean DEBUG = false;
+
+    private HtmlSpanner htmlSpanner;
+
+    private OnClickUrlListener mOnClickUrlListener;
 
     @Nullable
     private ClickableTableSpan clickableTableSpan;
@@ -96,14 +103,25 @@ public class HtmlTextView extends JellyBeanSpanFixTextView {
 
         html = htmlTagHandler.overrideTags(html);
 
+        if (htmlSpanner == null) {
+            htmlSpanner = new HtmlSpanner(mOnClickUrlListener);
+        }
+
         if (removeTrailingWhiteSpace) {
-            setText(removeHtmlBottomPadding(Html.fromHtml(html, imageGetter, htmlTagHandler)));
+            setText(removeHtmlBottomPadding(htmlSpanner.fromHtml(html)));
         } else {
-            setText(Html.fromHtml(html, imageGetter, htmlTagHandler));
+            setText(htmlSpanner.fromHtml(html));
         }
 
         // make links work
         setMovementMethod(LocalLinkMovementMethod.getInstance());
+    }
+
+
+    public HtmlTextView setOnClickUrlListener(OnClickUrlListener listener) {
+        this.mOnClickUrlListener = listener;
+        htmlSpanner = new HtmlSpanner(mOnClickUrlListener);
+        return this;
     }
 
     /**
@@ -122,7 +140,7 @@ public class HtmlTextView extends JellyBeanSpanFixTextView {
      * The Html.fromHtml method has the behavior of adding extra whitespace at the bottom
      * of the parsed HTML displayed in for example a TextView. In order to remove this
      * whitespace call this method before setting the text with setHtml on this TextView.
-     *
+     * <p>
      * This method is deprecated, use setRemoveTrailingWhiteSpace instead.
      *
      * @param removeFromHtmlSpace true if the whitespace rendered at the bottom of a TextView
@@ -145,7 +163,7 @@ public class HtmlTextView extends JellyBeanSpanFixTextView {
      * Add ability to increase list item spacing. Useful for configuring spacing based on device
      * screen size. This applies to ordered and unordered lists.
      *
-     * @param px    pixels to indent.
+     * @param px pixels to indent.
      */
     public void setListIndentPx(float px) {
         this.indent = px;
