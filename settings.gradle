@@ -1,2 +1,2 @@
 include ':example'
-include ':HtmlTextView'
+include ':html-textview'

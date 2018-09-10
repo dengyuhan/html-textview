@@ -1,0 +1,8 @@
+apply plugin: 'com.android.library'
+apply from: "bintray.gradle"
+
+dependencies {
+    compileOnly "com.android.support:support-annotations:$rootProject.ext.android.supportVersion"
+    api 'net.sourceforge.htmlcleaner:htmlcleaner:2.22'
+    api files('libs/cssparser-1.5.jar')
+}

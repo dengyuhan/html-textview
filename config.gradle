@@ -1,0 +1,45 @@
+ext {
+    android =
+            [
+                    applicationId    : "org.sufficientlysecure.htmltextview.example",
+
+                    //版本号
+                    versionCode      : 15,
+                    versionName      : "3.6.1-beta",
+
+                    //sdk版本
+                    compileSdkVersion: 26,
+                    buildToolsVersion: "26.0.2",
+                    minSdkVersion    : 14,
+                    targetSdkVersion : 26,
+                    supportVersion   : "26.1.0",
+            ]
+
+    jcenter =
+            [
+                    //项目名称
+                    name       : "HtmlTextView",
+                    groupId    : "com.dyhdyh.support",
+                    //项目地址
+                    siteUrl    : "https://github.com/dengyuhan/html-textview",
+                    //项目git地址
+                    gitUrl     : "https://github.com/dengyuhan/html-textview.git",
+                    //项目描述
+                    description: "基于PrivacyApps/html-textview扩展",
+                    //开发者的一些基本信息
+                    authorId   : "dengyuhan",
+                    authorName : "dengyuhan",
+                    authorEmail: "22309946@qq.com",
+
+                    //开源协议
+                    licenses   : {
+                        license {
+                            name 'Apache-2.0'
+                            url 'https://opensource.org/licenses/Apache-2.0'
+                        }
+                    },
+                    licenseName: 'Apache-2.0'
+            ]
+
+
+}
