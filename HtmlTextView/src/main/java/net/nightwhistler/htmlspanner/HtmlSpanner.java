@@ -416,6 +416,7 @@ public class HtmlSpanner {
                 .setMarginBottom(
                         new StyleValue(1.0f, StyleValue.Unit.EM));
 
+        registerHandler("span", wrap(new StyledTextHandler()));
 
         TagNodeHandler pHandler = new BorderAttributeHandler(wrap(new StyledTextHandler(paragraphStyle)));
 
