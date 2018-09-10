@@ -19,7 +19,6 @@ package org.sufficientlysecure.htmltextview.example;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.style.URLSpan;
 import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -73,9 +72,9 @@ public class MainActivity extends Activity {
 
         textView.setOnClickUrlListener(new OnClickUrlListener() {
             @Override
-            public void onClickUrl(URLSpan span, View widget, String url) {
+            public boolean onClickUrl(View widget, String url) {
                 Toast.makeText(MainActivity.this, url, Toast.LENGTH_SHORT).show();
-
+                return true;
             }
 
         });

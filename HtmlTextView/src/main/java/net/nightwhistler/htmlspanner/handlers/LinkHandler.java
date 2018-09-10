@@ -48,10 +48,8 @@ public class LinkHandler extends StyledTextHandler {
         stack.pushSpan(new URLStyleSpan(href, TextUtils.isEmpty(style)) {
             @Override
             public void onClick(View widget) {
-                if (mOnClickUrlListener == null) {
+                if (mOnClickUrlListener == null || !mOnClickUrlListener.onClickUrl(widget, href)) {
                     super.onClick(widget);
-                } else {
-                    mOnClickUrlListener.onClickUrl(this,widget, href);
                 }
             }
         }, start, end);
