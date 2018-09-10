@@ -51,7 +51,7 @@ public class LinkHandler extends StyledTextHandler {
                 if (mOnClickUrlListener == null) {
                     super.onClick(widget);
                 } else {
-                    mOnClickUrlListener.onClickUrl(this, href);
+                    mOnClickUrlListener.onClickUrl(this,widget, href);
                 }
             }
         }, start, end);

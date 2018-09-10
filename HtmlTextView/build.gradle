@@ -24,6 +24,6 @@ publish {
 
 dependencies {
     compileOnly 'com.android.support:support-annotations:27.0.2'
-    api 'net.sourceforge.htmlcleaner:htmlcleaner:2.22'
-    api files('libs/cssparser-1.5.jar')
+    implementation 'net.sourceforge.htmlcleaner:htmlcleaner:2.22'
+    implementation files('libs/cssparser-1.5.jar')
 }
