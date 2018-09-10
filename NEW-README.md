@@ -11,8 +11,9 @@ implementation 'com.dyhdyh.support:html-textview:3.6.1-beta'
 ```
 textView.setOnClickUrlListener(new OnClickUrlListener() {
     @Override
-    public void onClickUrl(URLSpan span, String url) {
+    public boolean onClickUrl(View widget, String url) {
         Toast.makeText(MainActivity.this, url, Toast.LENGTH_SHORT).show();
+        return true;
     }
 
 });
@@ -30,14 +31,15 @@ textView.setOnClickUrlListener(new OnClickUrlListener() {
 
 ### Import
 ```
-implementation 'com.dyhdyh.support:html-textview:3.6.1-beta'
+implementation 'com.dyhdyh.support:html-textview:3.6.1-beta5'
 ```
 ### Custom URL ClickListener
 ```
 textView.setOnClickUrlListener(new OnClickUrlListener() {
     @Override
-    public void onClickUrl(URLSpan span, String url) {
+    public boolean onClickUrl(View widget, String url) {
         Toast.makeText(MainActivity.this, url, Toast.LENGTH_SHORT).show();
+        return true;
     }
 
 });
