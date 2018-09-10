@@ -101,7 +101,7 @@ public class HtmlTextView extends JellyBeanSpanFixTextView {
         htmlTagHandler.setDrawTableLinkSpan(drawTableLinkSpan);
         htmlTagHandler.setListIndentPx(indent);
 
-        html = htmlTagHandler.overrideTags(html);
+        //html = htmlTagHandler.overrideTags(html);
 
         if (htmlSpanner == null) {
             htmlSpanner = new HtmlSpanner(mOnClickUrlListener);
