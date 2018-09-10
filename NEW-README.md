@@ -5,7 +5,7 @@
 
 ### 导入
 ```
-implementation 'com.dyhdyh.support:html-textview:3.6.1-beta'
+implementation 'com.dyhdyh.support:html-textview:3.6.1-beta5'
 ```
 ### 自定义URL点击事件.  
 ```
