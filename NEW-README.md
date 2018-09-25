@@ -6,7 +6,7 @@
 ### 已知的问题
 1. 不支持`<table>`;
 2. 不支持`<img>`;
-3. `<ol>`、`<ol>`样式兼容性不太好.
+3. `<ol>`、`<ul>`样式兼容性不太好.
 
 ### 导入
 ```
@@ -38,7 +38,7 @@ textView.setOnClickUrlListener(new OnClickUrlListener() {
 ### Known Issues
 1. `<table>` is not supported;
 2. `<img>` is not supported;
-3. `<ol>`, `<ol>` style compatibility is not very good.
+3. `<ol>`, `<ul>` style compatibility is not very good.
 
 ### Import
 ```
