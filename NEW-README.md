@@ -9,6 +9,7 @@ implementation 'com.dyhdyh.support:html-textview:3.6.1-beta6'
 ```
 ### 自定义URL点击事件.  
 ```
+//在setHtml之前调用
 textView.setOnClickUrlListener(new OnClickUrlListener() {
     @Override
     public boolean onClickUrl(View widget, String url) {
@@ -35,6 +36,7 @@ implementation 'com.dyhdyh.support:html-textview:3.6.1-beta6'
 ```
 ### Custom URL ClickListener
 ```
+//called before setHtml
 textView.setOnClickUrlListener(new OnClickUrlListener() {
     @Override
     public boolean onClickUrl(View widget, String url) {
