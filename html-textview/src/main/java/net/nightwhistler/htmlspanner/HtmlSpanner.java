@@ -16,6 +16,7 @@
 
 package net.nightwhistler.htmlspanner;
 
+import android.text.Html;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 
@@ -75,6 +76,8 @@ public class HtmlSpanner {
 
     private boolean stripExtraWhiteSpace = false;
 
+    private Html.ImageGetter imageGetter;
+
     private HtmlCleaner htmlCleaner;
 
     private FontResolver fontResolver;
@@ -94,11 +97,11 @@ public class HtmlSpanner {
      * Creates a new HtmlSpanner using a default HtmlCleaner instance.
      */
     public HtmlSpanner() {
-        this(null);
+        this(null, null);
     }
 
-    public HtmlSpanner(OnClickUrlListener listener) {
-        this(createHtmlCleaner(), new SystemFontResolver(), listener);
+    public HtmlSpanner(Html.ImageGetter imageGetter, OnClickUrlListener listener) {
+        this(createHtmlCleaner(), new SystemFontResolver(), imageGetter, listener);
     }
 
     /**
@@ -108,10 +111,11 @@ public class HtmlSpanner {
      *
      * @param cleaner
      */
-    public HtmlSpanner(HtmlCleaner cleaner, FontResolver fontResolver, OnClickUrlListener listener) {
+    public HtmlSpanner(HtmlCleaner cleaner, FontResolver fontResolver, Html.ImageGetter imageGetter, OnClickUrlListener listener) {
         this.htmlCleaner = cleaner;
         this.fontResolver = fontResolver;
         this.handlers = new HashMap<String, TagNodeHandler>();
+        this.imageGetter = imageGetter;
         this.mOnClickUrlListener = listener;
 
         registerBuiltInHandlers();
@@ -457,7 +461,7 @@ public class HtmlSpanner {
         registerHandler("li", new ListItemHandler());
 
         registerHandler("a", wrap(new LinkHandler().setOnClickUrlListener(mOnClickUrlListener)));
-        registerHandler("img", new ImageHandler());
+        registerHandler("img", new ImageHandler(imageGetter));
 
         registerHandler("font", new FontHandler());
 
