@@ -4,9 +4,10 @@
 3. `<u>` `<strong>`等等其它文字类型的标签也支持style.  
 
 ### 已知的问题
-1. 不支持`<table>`;
-2. 不支持`<img>`;
-3. `<ol>`、`<ul>`样式兼容性不太好.
+1. 不支持`<table>`；
+2. 不支持`<img>`；已在[7cd2f35](https://github.com/dengyuhan/html-textview/commit/7cd2f35127fdb5b474423e5cedd2e15d5343e796)支持
+3. 嵌套`<ol>`、`<ul>`间距不正确；
+4. `<li>`不支持样式。
 
 ### 导入
 ```
@@ -28,6 +29,7 @@ textView.setOnClickUrlListener(new OnClickUrlListener() {
 [PrivacyApps/html-textview](https://github.com/PrivacyApps/html-textview)  
 [NightWhistler/HtmlSpanner](https://github.com/NightWhistler/HtmlSpanner)
 
+
 ***
 
 ### New Features
@@ -37,8 +39,9 @@ textView.setOnClickUrlListener(new OnClickUrlListener() {
 
 ### Known Issues
 1. `<table>` is not supported;
-2. `<img>` is not supported;
-3. `<ol>`, `<ul>` style compatibility is not very good.
+2. `<img>` is not supported;(it is supported in [7cd2f35](https://github.com/dengyuhan/html-textview/commit/7cd2f35127fdb5b474423e5cedd2e15d5343e796))
+3. nested `<ol>`, `<ul>` spacing is incorrect;
+4. `<li>` does not support styles.
 
 ### Import
 ```
