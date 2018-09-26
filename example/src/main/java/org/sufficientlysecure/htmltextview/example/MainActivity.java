@@ -70,15 +70,14 @@ public class MainActivity extends Activity {
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
         textView.setListIndentPx(metrics.density * 10);
 
-        textView.setImageGetter(new HtmlResImageGetter(textView))
-                .setOnClickUrlListener(new OnClickUrlListener() {
-                    @Override
-                    public boolean onClickUrl(View widget, String url) {
-                        Toast.makeText(MainActivity.this, url, Toast.LENGTH_SHORT).show();
-                        return true;
-                    }
+        textView.setOnClickUrlListener(new OnClickUrlListener() {
+            @Override
+            public boolean onClickUrl(View widget, String url) {
+                Toast.makeText(MainActivity.this, url, Toast.LENGTH_SHORT).show();
+                return true;
+            }
 
-                });
+        });
         textView.setHtml(R.raw.example, new HtmlResImageGetter(textView));
     }
 

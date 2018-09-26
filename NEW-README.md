@@ -11,8 +11,9 @@
 
 ### 导入
 ```
-implementation 'com.dyhdyh.support:html-textview:3.6.1-beta6'
+implementation 'com.dyhdyh.support:html-textview:3.6.1-beta7'
 ```
+
 ### 自定义URL点击事件  
 ```
 //在setHtml之前调用
@@ -45,7 +46,7 @@ textView.setOnClickUrlListener(new OnClickUrlListener() {
 
 ### Import
 ```
-implementation 'com.dyhdyh.support:html-textview:3.6.1-beta6'
+implementation 'com.dyhdyh.support:html-textview:3.6.1-beta7'
 ```
 ### Custom URL ClickListener
 ```
