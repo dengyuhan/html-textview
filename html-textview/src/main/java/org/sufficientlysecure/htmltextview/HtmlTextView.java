@@ -36,7 +36,6 @@ public class HtmlTextView extends JellyBeanSpanFixTextView {
 
     private HtmlSpanner htmlSpanner;
 
-    private Html.ImageGetter mImageGetter;
     private OnClickUrlListener mOnClickUrlListener;
 
     @Nullable
@@ -105,7 +104,7 @@ public class HtmlTextView extends JellyBeanSpanFixTextView {
         //html = htmlTagHandler.overrideTags(html);
 
         if (htmlSpanner == null) {
-            htmlSpanner = new HtmlSpanner(mImageGetter, mOnClickUrlListener);
+            htmlSpanner = new HtmlSpanner(imageGetter, mOnClickUrlListener);
         }
 
         if (removeTrailingWhiteSpace) {
@@ -116,12 +115,6 @@ public class HtmlTextView extends JellyBeanSpanFixTextView {
 
         // make links work
         setMovementMethod(LocalLinkMovementMethod.getInstance());
-    }
-
-    public HtmlTextView setImageGetter(Html.ImageGetter imageGetter) {
-        this.mImageGetter = imageGetter;
-        this.htmlSpanner = null;
-        return this;
     }
 
     public HtmlTextView setOnClickUrlListener(OnClickUrlListener listener) {
