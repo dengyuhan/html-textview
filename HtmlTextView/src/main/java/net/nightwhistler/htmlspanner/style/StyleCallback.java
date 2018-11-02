@@ -88,7 +88,7 @@ public class StyleCallback implements SpanCallback {
             if ( styleValue.getUnit() == StyleValue.Unit.PX ) {
                 if ( styleValue.getIntValue() > 0 ) {
                     // Log.d("StyleCallback", "Applying AbsoluteSizeSpan with size " + useStyle.getAbsoluteFontSize() + " from " + start + " to " + end + " on text " + builder.subSequence(start, end));
-                    builder.setSpan(new AbsoluteSizeSpan(styleValue.getIntValue()), start, end,
+                    builder.setSpan(new AbsoluteSizeSpan(styleValue.getIntValue(),true), start, end,
                         Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
                 }
             } else {

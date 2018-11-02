@@ -1,7 +1,8 @@
 ### 新增的特性
 1. 支持`<span>`;  
 2. 支持`<a>`自定义URL点击事件;  
-3. `<u>` `<strong>`等等其它文字类型的标签也支持style.  
+3. `<u>` `<strong>`等等其它文字类型的标签也支持style;  
+4. 支持`rgb(255, 255, 255)`的颜色格式.
 
 ### 已知的问题
 1. 不支持`<table>`；
@@ -36,7 +37,8 @@ textView.setOnClickUrlListener(new OnClickUrlListener() {
 ### New Features
 1. added support for `<span>`;  
 2. added `<a>` url custom click event;  
-3. let `<u>` `<strong>` and other text type tags support Inline style.  
+3. let `<u>` `<strong>` and other text type tags support Inline style;
+4. support the color format of `rgb(255, 255, 255)`.
 
 ### Known Issues
 1. `<table>` is not supported;
