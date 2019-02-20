@@ -4,8 +4,8 @@ ext {
                     applicationId    : "org.sufficientlysecure.htmltextview.example",
 
                     //版本号
-                    versionCode      : 22,
-                    versionName      : "3.6.1-beta8",
+                    versionCode      : 23,
+                    versionName      : "3.6.2",
 
                     //sdk版本
                     compileSdkVersion: 26,
