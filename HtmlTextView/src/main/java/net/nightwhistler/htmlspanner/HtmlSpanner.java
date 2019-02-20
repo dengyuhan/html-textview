@@ -97,11 +97,11 @@ public class HtmlSpanner {
      * Creates a new HtmlSpanner using a default HtmlCleaner instance.
      */
     public HtmlSpanner() {
-        this(null, null);
+        this(null, null, null);
     }
 
-    public HtmlSpanner(Html.ImageGetter imageGetter, OnClickUrlListener listener) {
-        this(createHtmlCleaner(), new SystemFontResolver(), imageGetter, listener);
+    public HtmlSpanner(FontResolver fontResolver, Html.ImageGetter imageGetter, OnClickUrlListener listener) {
+        this(createHtmlCleaner(), fontResolver, imageGetter, listener);
     }
 
     /**
@@ -113,7 +113,7 @@ public class HtmlSpanner {
      */
     public HtmlSpanner(HtmlCleaner cleaner, FontResolver fontResolver, Html.ImageGetter imageGetter, OnClickUrlListener listener) {
         this.htmlCleaner = cleaner;
-        this.fontResolver = fontResolver;
+        this.fontResolver = fontResolver == null ? new SystemFontResolver() : fontResolver;
         this.handlers = new HashMap<String, TagNodeHandler>();
         this.imageGetter = imageGetter;
         this.mOnClickUrlListener = listener;

@@ -23,6 +23,7 @@ import android.support.annotation.RawRes;
 import android.text.Html;
 import android.util.AttributeSet;
 
+import net.nightwhistler.htmlspanner.FontResolver;
 import net.nightwhistler.htmlspanner.HtmlSpanner;
 import net.nightwhistler.htmlspanner.handlers.listeners.OnClickUrlListener;
 
@@ -96,6 +97,11 @@ public class HtmlTextView extends JellyBeanSpanFixTextView {
      *                    HtmlLocalImageGetter and HtmlRemoteImageGetter
      */
     public void setHtml(@NonNull String html, @Nullable Html.ImageGetter imageGetter) {
+        setHtml(html, null, imageGetter);
+    }
+
+
+    public void setHtml(@NonNull String html, FontResolver fontResolver, @Nullable Html.ImageGetter imageGetter) {
         final HtmlTagHandler htmlTagHandler = new HtmlTagHandler(getPaint());
         htmlTagHandler.setClickableTableSpan(clickableTableSpan);
         htmlTagHandler.setDrawTableLinkSpan(drawTableLinkSpan);
@@ -104,7 +110,7 @@ public class HtmlTextView extends JellyBeanSpanFixTextView {
         //html = htmlTagHandler.overrideTags(html);
 
         if (htmlSpanner == null) {
-            htmlSpanner = new HtmlSpanner(imageGetter, mOnClickUrlListener);
+            htmlSpanner = new HtmlSpanner(fontResolver, imageGetter, mOnClickUrlListener);
         }
 
         if (removeTrailingWhiteSpace) {
